@@ -40,3 +40,4 @@ try:
     print("Inventario:", len(filas), "filas; columnas:", list(filas[0].keys()) if filas else [])
 except Exception as e:
     print("Inventario no disponible todavía:", type(e).__name__, str(e)[:200])
+# 2026-10-14T03:41:35

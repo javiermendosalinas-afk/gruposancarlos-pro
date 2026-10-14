@@ -11,25 +11,22 @@ def get(u, b=False):
     return r if b else r.decode("utf-8", "ignore")
 def norm(s): return unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode().lower()
 os.makedirs("datos/oficial", exist_ok=True)
-paginas = {}
-for lista in ("desarrollos", "desarrollos?params=departamentos", "desarrollos?params=casas", "desarrollos?params=terrenos"):
-    try:
-        h = get(BASE + lista)
-        for href, txt in re.findall(r'<a[^>]+href="([^"]+)"[^>]*>(.*?)</a>', h, re.S):
-            u = urllib.parse.urljoin(BASE, href)
-            if "gruposancarlos.com" not in u or any(x in u for x in ("#", "whatsapp", "asesores", ".pdf", "desarrollos?")):
-                continue
-            clave = norm(u + " " + re.sub("<[^>]+>", " ", txt))
-            for slug, alias in NOMBRES.items():
-                if any(a in clave for a in alias) and slug not in paginas:
-                    paginas[slug] = u
-    except Exception as e:
-        print("lista no disponible:", lista, type(e).__name__)
+paginas = {"celestia": "https://celestiavertical.com/", "ventana-sur": "https://ventanasur.mx/", "panorama-las-fuentes": "https://panoramalasfuentes.com/",
+           "colinas-de-san-isidro": "https://www.colinasdesanisidro.com/", "parques-vallarta": "https://www.parquesvallarta.com/", "bosque-vii": "https://cotocaoba.com/",
+           "parques-del-bosque-2": "https://parquesdelbosque.com.mx/", "coras-living": "https://corasliving.com/"}
 print("Páginas encontradas:", json.dumps(paginas, ensure_ascii=False, indent=1))
 fotos_json = json.load(open("datos/fotos.json")) if os.path.exists("datos/fotos.json") else {}
 for slug, u in paginas.items():
     try:
         h = get(u)
+        dom = urllib.parse.urlparse(u).netloc
+        for href in re.findall(r'href="([^"#]+)"', h)[:200]:
+            v = urllib.parse.urljoin(u, href)
+            if urllib.parse.urlparse(v).netloc == dom and re.search(r"galer|amenid|modelo|depa|casa|prototip|terreno|ubicac", v, re.I) and not re.search(r"\.(pdf|jpe?g|png|webp)$", v, re.I):
+                try:
+                    h += get(v)
+                except Exception:
+                    pass
         texto = html.unescape(re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " | ", re.sub(r"<(script|style)[^>]*>.*?</\1>", " ", h, flags=re.S))))
         claves = sorted(set(m.strip(" |") for m in re.findall(r"[^|]{0,90}(?:m²|m2|rec[aá]mara|baño|estacionamiento|cajones?|alberca|casa club|gimnasio|roof|terraza|amenidad|asador|parque|seguridad|acceso controlado|ludoteca|cowork|elevador)[^|]{0,90}", texto, re.I) if 8 < len(m.strip(" |")) < 180))
         imgs = []

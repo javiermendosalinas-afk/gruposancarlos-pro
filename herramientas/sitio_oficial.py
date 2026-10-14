@@ -54,4 +54,4 @@ for slug, u in paginas.items():
         print(f"{slug}: {len(guardadas)} fotos de {len(imgs)} imágenes; {len(claves)} datos")
     except Exception as e:
         print(slug, "error", type(e).__name__, str(e)[:120])
-json.dump(fotos_json, open("datos/fotos.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+# la clasificación (fotos/planos/portada) la hace herramientas/clasificar_fotos.py

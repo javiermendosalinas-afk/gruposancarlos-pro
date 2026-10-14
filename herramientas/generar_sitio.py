@@ -157,8 +157,13 @@ def pagina(titulo, desc, cuerpo, canon, raiz="", activo="", extra_head="", jsld=
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script></body></html>"""
 
 def foto_de(slug, i=0):
-    f = FOTOS.get(slug, [])
-    return f[i] if len(f) > i else None
+    f = FOTOS.get(slug, {})
+    if isinstance(f, list):
+        return f[i] if len(f) > i else None
+    return f.get("portada") if i == 0 else (f.get("fotos", [])[i] if len(f.get("fotos", [])) > i else None)
+def lista_fotos(slug, clave="fotos"):
+    f = FOTOS.get(slug, {})
+    return f if isinstance(f, list) and clave == "fotos" else (f.get(clave, []) if isinstance(f, dict) else [])
 
 def main():
     os.makedirs("desarrollos", exist_ok=True)
@@ -179,7 +184,8 @@ def main():
         cer_html = "".join(f"<li><span>{E(n[:1].upper()+n[1:])}</span><b>{x:.1f} km</b></li>" for n, x in cer) if cer else "<li><span>Puerto Vallarta, Jalisco</span><b>Costa</b></li>"
         mods = "".join(f'<div><b>{E(m.replace("-", " ").title())}</b><span>{c} disponibles</span></div>' for m, c in r["modelos"].most_common(10) if m)
         tours = "".join(f'<a href="{E(u_)}" target="_blank" rel="noopener">▶ Recorrido 360° {E(n)}</a>' for n, u_ in d["tours"])
-        gal = "".join(f'<img src="../{E(x)}" alt="{E(d["nombre"])}, imagen oficial {i+1}" loading="lazy">' for i, x in enumerate(FOTOS.get(d["slug"], [])[:12]))
+        gal = "".join(f'<img src="../{E(x)}" alt="{E(d["nombre"])}, imagen oficial {i+1}" loading="lazy">' for i, x in enumerate(lista_fotos(d["slug"])[:12]))
+        planos = "".join(f'<img src="../{E(x)}" alt="{E(d["nombre"])}, planta arquitectónica {i+1}" loading="lazy" style="object-fit:contain;background:#fff">' for i, x in enumerate(lista_fotos(d["slug"], "planos")[:8]))
         mini = f'<div id="mini" class="mini" data-lat="{u["lat"]}" data-lon="{u["lon"]}"></div>' if "lat" in u else ""
         f1 = foto_de(d["slug"])
         notas = []
@@ -196,6 +202,7 @@ def main():
 {('<h3 style="margin-top:30px">Recórrelo desde tu casa</h3><div class="tours">' + tours + '</div>') if tours else ''}</div>
 <aside><div class="cerca"><h3>Qué tan cerca te queda</h3><ul>{cer_html}</ul>{mini}<p class="aviso">Distancias en línea recta desde la ubicación oficial del desarrollo.</p></div></aside></div></section>
 {('<section class="sec" style="padding-top:0"><div class="c"><h2>Galería oficial</h2><div class="gal">' + gal + '</div></div></section>') if gal else ''}
+{('<section class="sec" style="padding-top:0"><div class="c"><h2>Conoce la distribución</h2><p class="intro">Plantas arquitectónicas oficiales de los modelos.</p><div class="gal">' + planos + '</div></div></section>') if planos else ''}
 <script>window.addEventListener("load",function(){{var e=document.getElementById("mini");if(!e||!window.L)return;var m=L.map(e,{{scrollWheelZoom:false}}).setView([+e.dataset.lat,+e.dataset.lon],13);L.tileLayer("https://{{s}}.tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png",{{attribution:"© OpenStreetMap"}}).addTo(m);L.marker([+e.dataset.lat,+e.dataset.lon]).addTo(m);}});</script>"""
         ld = {"@context": "https://schema.org", "@type": "Residence", "name": d["nombre"], "description": d["historia"], "url": f"https://gruposancarlos.pro/desarrollos/{d['slug']}.html",
               "offers": {"@type": "AggregateOffer", "lowPrice": int(r["min"]), "highPrice": int(r["max"]), "priceCurrency": "MXN", "offerCount": r["n"]}}

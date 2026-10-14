@@ -17,6 +17,7 @@ jobs:
         with: {python-version: "3.12"}
       - run: pip install pillow==10.4.0
       - run: mkdir -p datos fotos && python -u herramientas/sitio_oficial.py | tee datos/oficial-registro.txt
+      - run: python -u herramientas/clasificar_fotos.py
       - run: python -u herramientas/generar_sitio.py
       - run: |
           git config user.email "claude@acierta.pro"; git config user.name "Material oficial"

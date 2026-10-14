@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: "0 11 * * *"
   push:
-    paths: [herramientas/datos.py, .github/workflows/datos.yml]
+    paths: [herramientas/datos.py, herramientas/generar_sitio.py, .github/workflows/datos.yml]
 permissions:
   contents: write
 jobs:
@@ -20,6 +20,8 @@ jobs:
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
           HOJA_KRM: 1P01QJ5H5-fCmwwGQWvjhciB3RdqxOa5YskP572Lxc4c
         run: mkdir -p datos && python -u herramientas/datos.py | tee datos/registro.txt
+      - name: Regenerar sitio con los datos del dia
+        run: python -u herramientas/generar_sitio.py
       - run: |
           git config user.email "claude@acierta.pro"; git config user.name "Datos automaticos"
-          git add datos; git diff --cached --quiet || (git commit -m "Datos de Grupo San Carlos" && git push)
+          git add datos index.html desarrollos sitemap.xml robots.txt; git diff --cached --quiet || (git commit -m "Datos de Grupo San Carlos" && git push)

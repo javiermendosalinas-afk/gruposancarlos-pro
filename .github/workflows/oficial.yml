@@ -1,0 +1,23 @@
+name: Material del sitio oficial de Grupo San Carlos
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 12 * * 1"
+  push:
+    paths: [herramientas/sitio_oficial.py, .github/workflows/oficial.yml]
+permissions:
+  contents: write
+jobs:
+  oficial:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install pillow==10.4.0
+      - run: mkdir -p datos fotos && python -u herramientas/sitio_oficial.py | tee datos/oficial-registro.txt
+      - run: python -u herramientas/generar_sitio.py
+      - run: |
+          git config user.email "claude@acierta.pro"; git config user.name "Material oficial"
+          git add datos fotos index.html desarrollos sitemap.xml; git diff --cached --quiet || (git commit -m "Material del sitio oficial de Grupo San Carlos" && git push)

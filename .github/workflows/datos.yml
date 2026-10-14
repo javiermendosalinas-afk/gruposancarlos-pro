@@ -19,7 +19,7 @@ jobs:
       - env:
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
           HOJA_KRM: 1P01QJ5H5-fCmwwGQWvjhciB3RdqxOa5YskP572Lxc4c
-        run: python -u herramientas/datos.py | tee datos/registro.txt
+        run: mkdir -p datos && python -u herramientas/datos.py | tee datos/registro.txt
       - run: |
           git config user.email "claude@acierta.pro"; git config user.name "Datos automaticos"
           git add datos; git diff --cached --quiet || (git commit -m "Datos de Grupo San Carlos" && git push)

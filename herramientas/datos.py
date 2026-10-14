@@ -1,5 +1,6 @@
 """Datos de gruposancarlos.pro: coordenadas (desde las ligas oficiales de Google Maps) e inventario del KRM (hoja de Google)."""
 import json, os, re, urllib.request, statistics
+os.makedirs("datos", exist_ok=True)
 UBIC = {  # desarrollo: liga oficial de ubicación (archivo UBICACIONES MAPS de Grupo San Carlos)
  "colinas-de-san-isidro": "https://maps.app.goo.gl/PLZpjUfgvCwgGXNY7", "gran-san-rafael": "https://maps.app.goo.gl/vuBVfHD31cjw8rhFA",
  "panorama-las-fuentes": "https://maps.app.goo.gl/o1WvAcEx66NzaqiPA", "parques-del-bosque-2": "https://maps.app.goo.gl/HGWTkN1QczGLPk6t6",

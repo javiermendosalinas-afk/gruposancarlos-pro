@@ -20,47 +20,48 @@ def fecha(s):
     m = re.match(r"(\d{2})-(\d{2})-(\d{4})", str(s or ""))
     return (int(m.group(3)), int(m.group(2))) if m else None
 HOY = datetime.date.today()
+from especificaciones import SPECS
 
 # Perfil editorial de cada desarrollo: solo hechos verificables (desarrollador, notas de prensa, coordenadas oficiales).
 DES = {
  "CELESTIA": {"slug": "celestia", "nombre": "Celestia Atmósfera Vertical", "zona": "Jardines del Bosque, Guadalajara", "ub": "celestia", "tipo": "Departamentos",
-   "gancho": "Vivir en lo alto, en una de las zonas mejor conectadas de Guadalajara.",
-   "historia": "Celestia es el proyecto vertical de Grupo San Carlos con Tacher Arquitectos, sobre Avenida Niños Héroes, en Jardines del Bosque. Sus departamentos llevan nombres de planetas (Luna, Venus, Marte y Júpiter) y se diseñaron para aprovechar cada metro y dar un valor estético poco común en la ciudad. El showroom y el departamento modelo están a unos pasos, sobre la calle Firmamento.",
+   "gancho": "Despierta cada día con la ciudad a tus pies, a pasos de la Minerva.",
+   "historia": "Imagina llegar a casa y que la vista te cambie el día. Celestia es la torre que Grupo San Carlos diseñó con Tacher Arquitectos sobre Avenida Niños Héroes, en Jardines del Bosque: a menos de un kilómetro de la Glorieta Minerva y a minutos de Plaza del Sol, sin renunciar a la tranquilidad de una colonia consolidada. Cada departamento lleva el nombre de un planeta y está pensado para aprovechar cada metro, con terrazas para tu café de la mañana o tu reunión de los viernes. Comprar hoy, en preventa, es asegurar tu lugar a precio de etapa temprana.",
    "puntos": ["Diseño de Tacher Arquitectos", "Avenida Niños Héroes, en Jardines del Bosque", "Departamento modelo y showroom en calle Firmamento", "Comprar en preventa permite apartar a precio de etapa temprana"],
    "tours": [("Departamento Luna", "https://bit.ly/LunaCelestia")]},
  "VENTANA SUR": {"slug": "ventana-sur", "nombre": "Ventana Sur", "zona": "Av. del Tesoro, Tlaquepaque", "ub": "ventana-sur", "tipo": "Departamentos",
-   "gancho": "Departamentos nuevos al sur de la ciudad, junto a lo que más usas.",
-   "historia": "Ventana Sur es un desarrollo vertical de Grupo San Carlos en Av. del Tesoro 1880, Tlaquepaque, en el sur de la ciudad, cerca de Periférico y del corredor López Mateos, una zona con universidades, comercios y servicios.",
+   "gancho": "Tu primer hogar, o tu mejor inversión, en el sur de la ciudad.",
+   "historia": "Hay decisiones que cambian la manera en que vives tu semana. En Ventana Sur, sobre Av. del Tesoro, en Tlaquepaque, tienes cerca Periférico, el corredor López Mateos, universidades, comercios y servicios. Sus departamentos de 65 a 86 m² tienen una recámara principal con baño y un espacio flexible que puedes convertir en oficina, estar o recámara, y algunos suman un roof top privado para tus tardes al aire libre. Es el lugar ideal para empezar, o para que tu dinero trabaje por ti.",
    "puntos": ["Cerca de Periférico y del corredor López Mateos", "Departamentos en varios niveles con vista", "Entrega programada para 2027"], "tours": []},
  "PANORAMA": {"slug": "panorama-las-fuentes", "nombre": "Panorama las Fuentes", "zona": "Las Fuentes, Tlaquepaque", "ub": "panorama-las-fuentes", "tipo": "Departamentos",
-   "gancho": "Departamentos con vistas, en el sur consolidado de Zapopan.",
-   "historia": "Panorama las Fuentes reúne torres de departamentos de Grupo San Carlos en Prolongación Av. Las Fuentes 1296, Tlaquepaque, en el sur de la ciudad, con modelos Verano y Primavera y niveles altos con roof garden.",
+   "gancho": "Vive dentro de Periférico, con un parque para tu familia junto a tu puerta.",
+   "historia": "Piensa en tus hijos jugando en un parque de más de 640 m², mientras tú haces ejercicio en la zona de calistenia o trabajas con wifi al aire libre. Panorama las Fuentes, en Prolongación Av. Las Fuentes 1296, Tlaquepaque, reúne torres de departamentos dentro de Periférico, con modelos Verano y Primavera, y roof garden privado en los niveles altos. Es la comodidad de vivir cerca de todo, con espacio para respirar.",
    "puntos": ["Modelos Verano y Primavera", "Niveles altos con roof garden", "Entregas escalonadas por torre"],
    "tours": [("Departamento Verano", "https://bit.ly/DepaVeranoPanorama"), ("Departamento Primavera", "https://bit.ly/DepaPrimaveraPanorama")]},
  "SAN ISIDRO": {"slug": "colinas-de-san-isidro", "nombre": "Colinas de San Isidro", "zona": "San Isidro, Zapopan", "ub": "colinas-de-san-isidro", "tipo": "Casas y departamentos",
-   "gancho": "Casas y departamentos en el norte de Zapopan, con casa club.",
-   "historia": "Colinas de San Isidro es un desarrollo residencial de Grupo San Carlos en el norte de Zapopan, a minutos del nuevo Costco San Isidro, con casas de varios modelos (Sendero, Meseta, Mezquite, Cañada, Cordillera y Sierra), departamentos y casa club.",
+   "gancho": "Vuelve a casa rodeado de naturaleza, sin alejarte de la ciudad.",
+   "historia": "Hay un momento del día en que todo se calma: cuando llegas a casa. En Colinas de San Isidro, en el norte de Zapopan, ese momento te espera entre más de 5,000 m² de áreas verdes, con alberca, casa club y vistas al bosque, a minutos de Costco San Isidro y de los servicios del norte de la ciudad. Elige entre casas de varios modelos o departamentos, y recorre la casa modelo para imaginar tu vida ahí.",
    "puntos": ["Casas y departamentos en un mismo desarrollo", "Casa club", "A minutos del Costco San Isidro", "Casa modelo para recorrer"],
    "tours": [("Casa club", "https://bit.ly/CasaClubCS"), ("Departamento", "https://bit.ly/DepartamentoCSI"), ("Modelo Cordillera", "https://bit.ly/ModeloCordillera"), ("Modelo Cañada", "https://bit.ly/ModeloCanada"), ("Modelo Prado", "https://bit.ly/ModeloPrado")]},
  "PARQUES VALLARTA": {"slug": "parques-vallarta", "nombre": "Parques Vallarta", "zona": "Zapopan, con acceso por Av. Inglaterra", "ub": "parques-vallarta", "tipo": "Terrenos",
-   "gancho": "Tu terreno para construir la casa que imaginas, con escrituración inmediata.",
-   "historia": "Parques Vallarta Residencial es la urbanización de Grupo San Carlos en Zapopan, con acceso por Av. Inglaterra. Son terrenos en cotos, listos para construir la casa a tu medida o como inversión patrimonial.",
+   "gancho": "Construye exactamente la casa que siempre has imaginado.",
+   "historia": "Tu casa ideal no está en un catálogo: está en tu cabeza. En Parques Vallarta Residencial, en Zapopan, con acceso por Av. Inglaterra, tienes el terreno para hacerla realidad, alrededor de un gran parque central de 34,000 m², con alberca, asoleadero y la seguridad de una urbanización de Grupo San Carlos. Lotes desde 165 m², para construir a tu medida o para proteger tu patrimonio como inversión.",
    "puntos": ["Terrenos urbanizados en cotos", "Listos para construir", "Ideal para construir a tu medida o invertir"], "tours": []},
  "BOSQUE VII": {"slug": "bosque-vii", "nombre": "Coto Caoba (Bosque VII)", "zona": "Parques del Bosque, Tlaquepaque", "ub": "parques-del-bosque", "tipo": "Departamentos",
-   "gancho": "El departamento más accesible de Grupo San Carlos, en una comunidad ya consolidada.",
-   "historia": "Coto Caoba (Bosque VII) son los departamentos de Grupo San Carlos en Independencia 3342, Parques del Bosque, Tlaquepaque: planta baja, niveles intermedios y departamentos en tercer nivel con roof garden, dentro de una comunidad ya establecida.",
+   "gancho": "Tu departamento propio, en una comunidad que ya está viva.",
+   "historia": "Pocas cosas dan tanta tranquilidad como saber que tu familia vive en un lugar seguro y con vecinos. Coto Caoba (Bosque VII), en Independencia 3342, Parques del Bosque, Tlaquepaque, te ofrece departamentos de 2 recámaras y 2 baños dentro de una comunidad establecida, con caseta de control de ingreso y un parque lineal con áreas verdes. Elige planta baja con patio, un nivel intermedio o el tercer nivel con un roof garden de casi 55 m² solo para ti.",
    "puntos": ["Planta baja, niveles intermedios y tercer nivel con roof garden", "Dentro de una comunidad establecida", "Entregas en 2027"],
    "tours": [("Departamento Bosque", "http://bit.ly/DepartamentoPBosque")]},
  "BOSQUE 2DA SECCION": {"slug": "parques-del-bosque-2", "nombre": "Parques del Bosque 2ª Sección", "zona": "Parques del Bosque, Tlaquepaque", "ub": "parques-del-bosque-2", "tipo": "Casas",
-   "gancho": "Casa nueva para tu familia, lista a fines de 2026.",
-   "historia": "La segunda sección de Parques del Bosque ofrece casas de Grupo San Carlos en los modelos Fresno y CAP, en una zona habitacional del sur con escuelas, comercios y vialidades de acceso.",
+   "gancho": "Una casa de tres recámaras para que cada quien tenga su espacio.",
+   "historia": "Cuando la familia crece, el espacio importa. En Parques del Bosque 2ª Sección, en el sur de Tlaquepaque, tus hijos tendrán su recámara y tú, la tranquilidad de una comunidad con áreas verdes y acceso controlado. Sus casas Fresno y CAP, de 101 a 122 m² de construcción, se entregan a fines de 2026: el tiempo justo para planear tu mudanza.",
    "puntos": ["Casas Fresno y CAP", "Entrega programada para el 31 de octubre de 2026", "Venta de contado"], "tours": [("Casa Fresno 102", "http://bit.ly/CasaFresno102")]},
  "GRAN SAN RAFAEL": {"slug": "gran-san-rafael", "nombre": "Gran San Rafael", "zona": "Oriente de Guadalajara", "ub": "gran-san-rafael", "tipo": "Casas",
-   "gancho": "Casas amplias, listas para habitar, en el oriente de la ciudad.",
-   "historia": "Gran San Rafael es un desarrollo de Grupo San Carlos en el oriente de Guadalajara. Sus casas Magnolia están terminadas y disponibles para habitar.",
+   "gancho": "Mudarte ya es posible: casas terminadas, listas para estrenar.",
+   "historia": "No todos pueden esperar una preventa, y no tienes por qué hacerlo. En Gran San Rafael, en el oriente de Guadalajara, las casas Magnolia de Grupo San Carlos están terminadas y listas para que te mudes. Quedan pocas unidades.",
    "puntos": ["Casas Magnolia", "Listas para habitar", "Últimas unidades disponibles"], "tours": [("Casa Magnolia", "https://bit.ly/RecorridoMagnolia")]},
  "CORAS": {"slug": "coras-living", "nombre": "Coras Living", "zona": "Av. Las Palmas, Puerto Vallarta", "ub": "coras", "tipo": "Departamentos",
-   "gancho": "Grupo San Carlos también en Puerto Vallarta.", "historia": "Coras Living es el desarrollo de departamentos de Grupo San Carlos en Puerto Vallarta, ya terminado. Quedan pocas unidades.",
+   "gancho": "Tu departamento frente al encanto de Puerto Vallarta.", "historia": "Imagina tus fines de semana, o tus ingresos por renta, en Puerto Vallarta. Coras Living, en Av. Las Palmas 253, es el desarrollo de Grupo San Carlos en la costa: departamentos terminados de 2 recámaras y 2 baños, con aire acondicionado y área de camastros. Quedan muy pocas unidades.",
    "puntos": ["Departamentos terminados", "En Puerto Vallarta", "Últimas unidades"], "tours": [("Departamento Coras", "https://bit.ly/DepaCoras")], "vallarta": True},
 }
 # ---- datos por desarrollo desde el KRM
@@ -80,6 +81,24 @@ def resumen(k):
     return {"n": len(v), "min": ps[0] if ps else 0, "max": ps[-1] if ps else 0, "modelos": mods, "entrega": ent, "contado": "SOLO CONTADO" in cond.upper(), "descuento": desc,
             "lista": str(v[0].get("Fecha de la lista de precios", "")) if v else ""}
 R = {k: resumen(k) for k in DES}
+def opciones(k, slug):
+    sp = SPECS.get(slug, {}); reglas = sp.get("reglas", [])
+    v = [r for r in G.get(k, []) if str(r.get("Estatus (disponible/apartado/vendido)", "")).lower().startswith("disp")]
+    grupos = collections.OrderedDict()
+    for r in v:
+        mod = str(r.get("Modelo", "")).upper()
+        regla = next((x for x in reglas if re.search(x[0], mod)), None) or ("", mod.replace("-", " ").title(), "", "", False)
+        g = grupos.setdefault(regla[1], {"m2": regla[2], "dist": regla[3], "aprox": regla[4], "precios": [], "fechas": []})
+        if num(r.get("Precio")) > 100000: g["precios"].append(num(r.get("Precio")))
+        f = fecha(r.get("Fecha promesa de entrega (portal)"))
+        if f: g["fechas"].append(f)
+    filas = []
+    for n, g in sorted(grupos.items(), key=lambda x: min(x[1]["precios"] or [0])):
+        ps = sorted(g["precios"]); fs = sorted(g["fechas"])
+        ent = "Inmediata" if fs and fs[-1] <= (HOY.year, HOY.month) else (f"{MESES[fs[0][1]].capitalize()} {fs[0][0]}" if fs else "Consultar")
+        filas.append((n, g["m2"] + ("*" if g["aprox"] and g["m2"] else ""), g["dist"], ps[0] if ps else 0, ps[-1] if ps else 0, len(ps), ent))
+    return filas, any(g["aprox"] for g in grupos.values())
+
 def cercanias(ubk):
     u = UB.get(ubk, {})
     if "lat" not in u:
@@ -135,6 +154,11 @@ h2{font-size:clamp(2rem,4.6vw,3.2rem)}h3{font-size:1.5rem}p{margin:0 0 1em}
 .aviso{font-size:.88rem;color:var(--suave);margin-top:14px}
 .cierre{background:var(--jacaranda);color:#fff;text-align:center}.cierre p{max-width:36em;margin:10px auto 24px;color:#EDE6F6}
 footer{background:var(--tinta);color:#A9ABB8;font-size:.87rem;line-height:1.6;padding:40px 0 100px}footer b{color:#fff}
+.tabla-env{overflow-x:auto;margin-top:26px;border:1px solid #E5E1EA;border-radius:14px;background:#fff}
+.opciones{width:100%;border-collapse:collapse;min-width:720px}.opciones th,.opciones td{padding:14px 16px;text-align:left;border-bottom:1px solid #EEEAF2;vertical-align:top}
+.opciones thead th{background:var(--noche);color:#fff;font-weight:600;font-size:.92rem}.opciones tbody th{font-family:var(--serif);font-weight:500;font-size:1.15rem}
+.opciones tbody tr:last-child th,.opciones tbody tr:last-child td{border-bottom:0}.opciones td b{white-space:nowrap}
+.puntos li::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--cantera);margin-right:10px;vertical-align:middle}
 .flot{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:1001;display:none}.flot .btn{width:100%}@media(max-width:760px){.flot{display:block}}"""
 
 def pagina(titulo, desc, cuerpo, canon, raiz="", activo="", extra_head="", jsld=None):
@@ -149,7 +173,7 @@ def pagina(titulo, desc, cuerpo, canon, raiz="", activo="", extra_head="", jsld=
 <a class="btn btn-wa" style="padding:9px 16px" href="{wa('Hola, vengo de gruposancarlos.pro y quiero información')}" target="_blank" rel="noopener">WhatsApp</a></div></header>
 <nav class="tabs" aria-label="Desarrollos"><div class="c"><a href="{raiz}index.html"{" aria-current=page" if activo == "inicio" else ""}>Inicio</a>{tabs}</div></nav>
 {cuerpo}
-<section class="sec cierre"><div class="c"><h2>Te acompañamos hasta tu nueva casa</h2><p>Acierta Max es inmobiliaria autorizada para comercializar los desarrollos de Grupo San Carlos: mismo precio y condiciones que con el desarrollador, y asesoría sin costo para ti.</p>
+<section class="sec cierre"><div class="c"><h2>No tienes que decidir solo</h2><p>Te ayudamos a comparar, a calcular tu crédito y a elegir con calma. Somos inmobiliaria autorizada de Grupo San Carlos: pagas el mismo precio que con el desarrollador, y la asesoría no te cuesta.</p>
 <a class="btn btn-wa" href="{wa('Hola, vengo de gruposancarlos.pro. Quiero que un asesor me ayude a elegir desarrollo')}" target="_blank" rel="noopener">Hablar con un asesor</a></div></section>
 <footer><div class="c"><p><b>Acierta Max, S.A. de C.V. · Inmobiliaria autorizada para la comercialización de desarrollos de Grupo San Carlos</b> (excepto Valle Imperial). Profesionales inmobiliarios, miembros de AMPI y NAR. WhatsApp 33 3377 7337 · <a href="https://acierta.pro">acierta.pro</a> · <a href="https://acierta.pro/aviso-privacidad.html">Aviso de privacidad</a></p>
 <p>Precios de lista, disponibilidad y fechas promesa de entrega tomados del portal oficial de Grupo San Carlos y actualizados diariamente; sujetos a cambio y a confirmación por escrito antes de apartar. Distancias en línea recta, calculadas con la ubicación oficial de cada desarrollo. Imágenes proporcionadas por el desarrollador; pueden ser ilustrativas. Grupo San Carlos es marca de su titular.</p></div></footer>
@@ -182,7 +206,10 @@ def main():
         # página del desarrollo
         cer = cercanias(d["ub"])
         cer_html = "".join(f"<li><span>{E(n[:1].upper()+n[1:])}</span><b>{x:.1f} km</b></li>" for n, x in cer) if cer else "<li><span>Puerto Vallarta, Jalisco</span><b>Costa</b></li>"
-        mods = "".join(f'<div><b>{E(m.replace("-", " ").title())}</b><span>{c} disponibles</span></div>' for m, c in r["modelos"].most_common(10) if m)
+        filas, aprox = opciones(k, d["slug"])
+        tabla = "".join(f'<tr><th scope="row">{E(n)}</th><td>{E(m2) or "—"}</td><td>{E(di) or "—"}</td><td><b>{din(lo)}</b>{(" a " + din(hi)) if hi > lo else ""}</td><td>{c}</td><td>{E(en)}</td></tr>' for n, m2, di, lo, hi, c, en in filas)
+        sp = SPECS.get(d["slug"], {})
+        incluye = "".join(f"<li>{E(x)}</li>" for x in sp.get("incluye", []))
         tours = "".join(f'<a href="{E(u_)}" target="_blank" rel="noopener">▶ Recorrido 360° {E(n)}</a>' for n, u_ in d["tours"])
         gal = "".join(f'<img src="../{E(x)}" alt="{E(d["nombre"])}, imagen oficial {i+1}" loading="lazy">' for i, x in enumerate(lista_fotos(d["slug"])[:12]))
         planos = "".join(f'<img src="../{E(x)}" alt="{E(d["nombre"])}, planta arquitectónica {i+1}" loading="lazy" style="object-fit:contain;background:#fff">' for i, x in enumerate(lista_fotos(d["slug"], "planos")[:8]))
@@ -195,10 +222,13 @@ def main():
 <div class="d-precio"><div><span>Precio de lista desde</span><b>{din(r['min'])}</b></div><div><span>Disponibles hoy</span><b>{r['n']}</b></div><div><span>Entrega</span><b style="font-size:1.4rem">{E(r['entrega'].capitalize())}</b></div></div>
 <a class="btn btn-wa" href="{wa(f"Hola, vengo de gruposancarlos.pro. Me interesa {d['nombre']} y quiero agendar una visita")}" target="_blank" rel="noopener">Agendar una visita</a></div>
 <div class="foto"{f' style="background-image:url(&quot;../{f1}&quot;)"' if f1 else ''} role="img" aria-label="{E(d['nombre'])}"></div></div></section>
-<section class="sec"><div class="c dos"><div><h2>{E(d['tipo'])} en {E(d['zona'])}</h2><p class="intro">{E(d['historia'])}</p>
-<ul class="puntos">{''.join(f'<li>✔ {E(p)}</li>' for p in d['puntos'])}</ul>{('<p class="aviso">' + ' '.join(notas) + '</p>') if notas else ''}
-<h3 style="margin-top:34px">Modelos disponibles hoy</h3><div class="mods">{mods}</div>
-<p class="aviso">Precios de lista de {din(r['min'])} a {din(r['max'])}, según modelo, nivel y ubicación de la unidad.{(' Lista del ' + E(r['lista']) + '.') if r['lista'] else ''}</p>
+<section class="sec" id="opciones"><div class="c"><h2>Elige tu opción</h2><p class="intro">{E(sp.get('intro', ''))}</p>
+<div class="tabla-env"><table class="opciones"><thead><tr><th scope="col">Tipo</th><th scope="col">Superficie</th><th scope="col">Distribución</th><th scope="col">Precio de lista</th><th scope="col">Disponibles</th><th scope="col">Entrega</th></tr></thead><tbody>{tabla}</tbody></table></div>
+<p class="aviso">Precios de lista y disponibilidad del portal oficial de Grupo San Carlos, actualizados hoy; el precio varía por nivel, orientación y ubicación de la unidad.{' *Superficie indicada en la clave oficial del modelo; confírmala con tu asesor.' if aprox else ''}</p>
+<p><a class="btn btn-wa" href="{wa(f"Hola, vengo de gruposancarlos.pro. Quiero ver las opciones disponibles de {d['nombre']} y sus planos")}" target="_blank" rel="noopener">Quiero planos y precios exactos</a></p></div></section>
+<section class="sec" style="padding-top:0"><div class="c dos"><div><h2>{E(d['tipo'])} en {E(d['zona'])}</h2><p class="intro">{E(d['historia'])}</p>
+<h3 style="margin-top:26px">Lo que incluye</h3><ul class="puntos">{incluye or ''.join(f'<li>{E(p)}</li>' for p in d['puntos'])}</ul>{('<p class="aviso">' + ' '.join(notas) + '</p>') if notas else ''}
+
 {('<h3 style="margin-top:30px">Recórrelo desde tu casa</h3><div class="tours">' + tours + '</div>') if tours else ''}</div>
 <aside><div class="cerca"><h3>Qué tan cerca te queda</h3><ul>{cer_html}</ul>{mini}<p class="aviso">Distancias en línea recta desde la ubicación oficial del desarrollo.</p></div></aside></div></section>
 {('<section class="sec" style="padding-top:0"><div class="c"><h2>Galería oficial</h2><div class="gal">' + gal + '</div></div></section>') if gal else ''}
@@ -211,16 +241,16 @@ def main():
             f"{d['nombre']}: {d['tipo'].lower()} de Grupo San Carlos en {d['zona']}, desde {din(r['min'])}. {r['n']} disponibles. Acierta Max, inmobiliaria autorizada.", cuerpo, f"desarrollos/{d['slug']}.html", "../", d["slug"], jsld=ld))
     total = sum(R[k]["n"] for k in DES)
     cuerpo = f"""<section class="hero"><div class="c"><div style="padding-bottom:40px"><span class="sello">✅ Acierta Max · Inmobiliaria autorizada</span>
-<h1>Encuentra tu casa entre {total} opciones de Grupo San Carlos</h1><p>Departamentos, casas y terrenos del desarrollador con 60 años construyendo Guadalajara. Elige tu zona en el mapa y conoce cada desarrollo.</p>
+<h1>El hogar que tu familia merece, con quien lleva 60 años construyéndolos</h1><p>Hoy hay {total} departamentos, casas y terrenos de Grupo San Carlos esperando a alguien como tú. Busca tu zona en el mapa, compara opciones y da el paso con la confianza de comprar al desarrollador correcto.</p>
 <p style="margin-top:22px"><a class="btn btn-j" href="#desarrollos">Ver desarrollos</a> <a class="btn btn-l" style="color:#fff;margin-left:6px" href="#trayectoria">Por qué Grupo San Carlos</a></p></div>
 <div><div id="mapa" role="region" aria-label="Mapa de desarrollos de Grupo San Carlos en la Zona Metropolitana de Guadalajara"></div></div></div></section>
 <section class="sec" id="trayectoria"><div class="c"><h2>60 años construyendo Guadalajara</h2>
-<p class="intro">Grupo San Carlos es una empresa tapatía fundada en 1965 por el ingeniero Salvador Ibarra Álvarez del Castillo. Hoy combina esa experiencia con una nueva generación y una estructura profesional, y es uno de los desarrolladores más reconocidos de Jalisco.</p>
+<p class="intro">Cuando compras una casa, compras también la palabra de quien la construyó. Grupo San Carlos es una empresa tapatía, familiar y con capital local, fundada en 1965 por el ingeniero Salvador Ibarra Álvarez del Castillo. Seis décadas después, miles de familias tapatías celebran sus cumpleaños, sus logros y sus domingos en un hogar hecho por ellos.</p>
 <div class="trayectoria"><div><b>1965</b><span>Año de fundación, en Guadalajara</span></div><div><b>60 mil</b><span>viviendas construidas y comercializadas</span></div><div><b>240 mil</b><span>personas con un hogar de Grupo San Carlos</span></div><div><b>16</b><span>desarrollos activos en la Zona Metropolitana</span></div></div>
 <div class="porque"><div><h3>Reconocimiento</h3><p>Una de las 50 empresas más destacadas de Jalisco en 2024; su fundador fue reconocido por la Cámara Mexicana de la Industria de la Construcción.</p></div>
-<div><h3>Comunidades, no solo casas</h3><p>Urbaniza espacios que mejoran la conectividad de la ciudad y promueve la organización vecinal para una mejor calidad de vida.</p></div>
-<div><h3>Para cada etapa de vida</h3><p>Departamentos, casas y terrenos en distintas zonas y presupuestos, de Zapopan a Tlaquepaque y Puerto Vallarta.</p></div></div></div></section>
-<section class="sec" id="desarrollos" style="padding-top:0"><div class="c"><h2>Desarrollos disponibles hoy</h2><p class="intro">Precios de lista y disponibilidad del portal oficial de Grupo San Carlos, actualizados cada día.</p><div class="grid">{''.join(tarjetas)}</div></div></section>
+<div><h3>Calidad que se garantiza</h3><p>Materiales con certificado de calidad y NOM, y garantía extendida en todas sus casas y departamentos.</p></div>
+<div><h3>Comunidades, no solo casas</h3><p>Promueve la organización vecinal para que tu colonia cuide su calidad de vida y la plusvalía de tu patrimonio.</p></div></div></div></section>
+<section class="sec" id="desarrollos" style="padding-top:0"><div class="c"><h2>¿Dónde te imaginas viviendo?</h2><p class="intro">Cada desarrollo es una forma distinta de vivir. Precios de lista y disponibilidad del portal oficial de Grupo San Carlos, actualizados cada día.</p><div class="grid">{''.join(tarjetas)}</div></div></section>
 <section class="sec autorizada"><div class="c"><div><h2>Por qué comprar con Acierta Max</h2><p class="intro">Somos inmobiliaria autorizada para comercializar los desarrollos de Grupo San Carlos. Compras al mismo precio y con las mismas condiciones del desarrollador, con más acompañamiento.</p></div>
 <ul><li>Mismo precio y condiciones que con el desarrollador</li><li>Comparamos desarrollos para que elijas con datos</li><li>Calculamos tu crédito bancario o Infonavit sin costo</li><li>Acierta Verifica: revisión antes de firmar</li><li>Atención por WhatsApp las 24 horas</li></ul></div></section>
 <script>var PUNTOS={json.dumps(puntos, ensure_ascii=False)};window.addEventListener("load",function(){{if(!window.L)return;var m=L.map("mapa",{{scrollWheelZoom:false}}).setView([20.66,-103.39],11);

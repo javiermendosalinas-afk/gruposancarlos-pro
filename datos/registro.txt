@@ -1,0 +1,2 @@
+Ubicaciones: {'colinas-de-san-isidro': 'OK', 'gran-san-rafael': 'OK', 'panorama-las-fuentes': 'OK', 'parques-del-bosque-2': 'OK', 'parques-del-bosque': 'OK', 'parques-vallarta': 'OK', 'coto-nogal': 'OK', 'coras': 'sin coordenadas', 'celestia': 'OK', 'ventana-sur': 'OK', 'oficinas-gsc': 'OK'}
+Inventario no disponible todavía: PermissionError 

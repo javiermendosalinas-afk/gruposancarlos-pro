@@ -1,0 +1,56 @@
+{
+ "colinas-de-san-isidro": {
+  "lat": 20.7684415,
+  "lon": -103.3832482,
+  "fuente": "https://www.google.com.mx/maps/place/Colinas+De+San+Isidro/@20.7684465,-103.3858231,668m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8428a567fb7c5771:0x6fb83e6b1c4711bd!8m2!3d20.7684415!4d-103.3832482!16s%2Fg%2F11g"
+ },
+ "gran-san-rafael": {
+  "lat": 20.6483894,
+  "lon": -103.2948373,
+  "fuente": "https://www.google.com.mx/maps/place/Gran+San+Rafael/@20.6483944,-103.2974122,669m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8428b3c0bff390ab:0x16d46a397c541cad!8m2!3d20.6483894!4d-103.2948373!16s%2Fg%2F11f3xgf2w"
+ },
+ "panorama-las-fuentes": {
+  "lat": 20.6115697,
+  "lon": -103.4036237,
+  "fuente": "https://www.google.com/maps/place/Panorama+Las+Fuentes/@20.6115707,-103.4081444,1670m/data=!3m1!1e3!4m6!3m5!1s0x8428ad28c43336d3:0x8b4577ec8e12f07d!8m2!3d20.6115697!4d-103.4036237!16s%2Fg%2F11fwjwqrtl"
+ },
+ "parques-del-bosque-2": {
+  "lat": 20.5933579,
+  "lon": -103.4053837,
+  "fuente": "https://www.google.com/maps/place/Parques+del+Bosque+2da+seccion/@20.5933579,-103.4101473,743m/data=!3m1!1e3!4m7!3m6!1s0x8428ad006b0dc751:0x3db082d834e1ed0b!8m2!3d20.5933579!4d-103.4053837!15sCh9wYXJx"
+ },
+ "parques-del-bosque": {
+  "lat": 20.6036423,
+  "lon": -103.4106729,
+  "fuente": "https://www.google.com.mx/maps/place/Parques+del+Bosque/@20.6036473,-103.4132478,669m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8428acfab250ea85:0xd9911a6db1033139!8m2!3d20.6036423!4d-103.4106729!16s%2Fg%2F11_t2s"
+ },
+ "parques-vallarta": {
+  "lat": 20.7222416,
+  "lon": -103.4764908,
+  "fuente": "https://www.google.com.mx/maps/place/Parques+Vallarta/@20.7222466,-103.4790657,668m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8428a8c29cb0e5a7:0x4123afd067e21c87!8m2!3d20.7222416!4d-103.4764908!16s%2Fg%2F11b6_g2s"
+ },
+ "coto-nogal": {
+  "lat": 20.7219634,
+  "lon": -103.4791852,
+  "fuente": "https://www.google.com/maps/place/Coto+Nogal/@20.7219634,-103.4813739,17z/data=!3m1!4b1!4m5!3m4!1s0x8428a991913555d7:0x3c88d7b70a51bd9d!8m2!3d20.7219634!4d-103.4791852?coh=164777&entry=tt&shorturl=1"
+ },
+ "coras": {
+  "error": "sin coordenadas",
+  "final": "https://www.google.com/maps/place/Coras+Living/@20.6868534,-105.2293405,835m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8421450f097e217f:0xb44c9b82c72a0b1!8m2!3d20.6868534!4d-105.2293405!16s%2Fg%2F11sbzm_q6v?entry"
+ },
+ "celestia": {
+  "lat": 20.6670093,
+  "lon": -103.3888166,
+  "fuente": "https://www.google.com/maps/place/Celestia+Atm%C3%B3sfera+Vertical+(oficina+de+ventas)/@20.6670093,-103.3888166,835m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8428af007ec30555:0xb67d470b4bb43d2a!8m2!3d20.6670093!"
+ },
+ "ventana-sur": {
+  "lat": 20.6167139,
+  "lon": -103.4020095,
+  "fuente": "https://www.google.com/maps/place/Ventana+Sur/@20.6167139,-103.4020095,825m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8428ad006a16a33f:0xcc2c1b1c861c090a!8m2!3d20.6167139!4d-103.4020095!16s%2Fg%2F11mscq811c?authu"
+ },
+ "oficinas-gsc": {
+  "lat": 20.6798142,
+  "lon": -103.3814722,
+  "fuente": "https://www.google.com/maps/place/Grupo+San+Carlos/@20.6798142,-103.3814722,835m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8428ae134db61033:0x3ab91d8a10d047d9!8m2!3d20.6798142!4d-103.3814722!16s%2Fg%2F1ydplg_5j?e"
+ }
+}

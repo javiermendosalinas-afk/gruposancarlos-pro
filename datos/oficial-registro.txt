@@ -1,1 +1,18 @@
-Páginas encontradas: {}
+Páginas encontradas: {
+ "celestia": "https://celestiavertical.com/",
+ "ventana-sur": "https://ventanasur.mx/",
+ "panorama-las-fuentes": "https://panoramalasfuentes.com/",
+ "colinas-de-san-isidro": "https://www.colinasdesanisidro.com/",
+ "parques-vallarta": "https://www.parquesvallarta.com/",
+ "bosque-vii": "https://cotocaoba.com/",
+ "parques-del-bosque-2": "https://parquesdelbosque.com.mx/",
+ "coras-living": "https://corasliving.com/"
+}
+celestia: 14 fotos de 36 imágenes; 14 datos
+ventana-sur: 12 fotos de 17 imágenes; 30 datos
+panorama-las-fuentes: 14 fotos de 67 imágenes; 31 datos
+colinas-de-san-isidro: 14 fotos de 72 imágenes; 10 datos
+parques-vallarta: 14 fotos de 30 imágenes; 18 datos
+bosque-vii: 11 fotos de 13 imágenes; 22 datos
+parques-del-bosque-2: 14 fotos de 31 imágenes; 22 datos
+coras-living: 3 fotos de 5 imágenes; 9 datos

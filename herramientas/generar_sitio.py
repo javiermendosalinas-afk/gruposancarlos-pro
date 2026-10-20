@@ -1,5 +1,8 @@
 """Genera gruposancarlos.pro desde datos oficiales: inventario del KRM (datos/inventario.json) y ubicaciones (datos/ubicaciones.json).
+
 Se ejecuta cada mañana después de la tarea de datos, así precios y disponibilidad siempre son los del desarrollador."""
+# Medición de Google Ads y Analytics (igual que bellavittoria.vip): clic a WhatsApp o llamada = conversión
+MEDICION = '<script async src="https://www.googletagmanager.com/gtag/js?id=AW-741016611"></script>\n<script>\nwindow.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}\ngtag(\'js\',new Date());gtag(\'config\',\'AW-741016611\');gtag(\'config\',\'G-NXLF42YLWF\');\nwindow.ACIERTA_CONV_LABEL=\'AXCuCP-hrZ0dEKOIrOEC\';/* cuando exista la conversion "Clic en WhatsApp", va aqui su etiqueta */\ndocument.addEventListener(\'click\',function(e){var a=e.target.closest&&e.target.closest(\'a[href*="wa.me/"],a[href^="tel:"]\');if(!a)return;\n var wa=a.href.indexOf(\'wa.me/\')>=0;gtag(\'event\',wa?\'clic_whatsapp\':\'clic_llamada\',{sitio:location.hostname,destino:a.href.slice(0,120)});\n if(wa&&window.ACIERTA_CONV_LABEL)gtag(\'event\',\'conversion\',{send_to:\'AW-741016611/\'+window.ACIERTA_CONV_LABEL});},true);\n</script>'
 import json, os, re, math, html, urllib.parse, collections, datetime
 E = lambda s: html.escape(str(s), quote=True)
 WA = "523333777337"
@@ -168,7 +171,7 @@ def pagina(titulo, desc, cuerpo, canon, raiz="", activo="", extra_head="", jsld=
 <title>{E(titulo)}</title><meta name="description" content="{E(desc)}"><link rel="canonical" href="https://gruposancarlos.pro/{canon}"><meta name="robots" content="index,follow">
 <meta property="og:title" content="{E(titulo)}"><meta property="og:description" content="{E(desc)}"><meta name="theme-color" content="#1E2340">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500&family=Archivo:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">{extra_head}{ld}<style>{CSS}</style></head><body>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">{extra_head}{ld}<style>{CSS}</style>{MEDICION}</head><body>
 <header class="barra"><div class="c"><a class="marca" href="{raiz}index.html">Grupo San Carlos <span>· con Acierta Max</span></a>
 <a class="btn btn-wa" style="padding:9px 16px" href="{wa('Hola, vengo de gruposancarlos.pro y quiero información')}" target="_blank" rel="noopener">WhatsApp</a></div></header>
 <nav class="tabs" aria-label="Desarrollos"><div class="c"><a href="{raiz}index.html"{" aria-current=page" if activo == "inicio" else ""}>Inicio</a>{tabs}</div></nav>
